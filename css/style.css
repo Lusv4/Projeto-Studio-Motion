@@ -1,0 +1,380 @@
+/* CORES PRINCIPAIS */
+:root {
+  --verde-escuro: #003c2f;
+  --verde-medio: #058c6e;
+  --verde-claro: #5ff2c6;
+  --branco: #ffffff;
+}
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--verde-escuro);
+  color: var(--branco);
+  overflow-x: hidden;
+}
+
+/* FUNDO ANIMADO */
+.bubbles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.bubbles span {
+  position: absolute;
+  bottom: -100px;
+  width: 20px;
+  height: 20px;
+  background: var(--verde-claro);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: subir 7s infinite ease-in;
+}
+
+.bubbles span:nth-child(odd) {
+  background: var(--verde-medio);
+}
+
+@keyframes subir {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-800px) scale(2);
+    opacity: 0;
+  }
+}
+
+.bubbles span:nth-child(1) {
+  left: 5%;
+  animation-delay: 0s;
+  width: 25px;
+  height: 25px;
+}
+
+.bubbles span:nth-child(2) {
+  left: 20%;
+  animation-delay: 3s;
+  width: 15px;
+  height: 15px;
+}
+
+.bubbles span:nth-child(3) {
+  left: 40%;
+  animation-delay: 1s;
+  width: 20px;
+  height: 20px;
+}
+
+.bubbles span:nth-child(4) {
+  left: 60%;
+  animation-delay: 4s;
+  width: 30px;
+  height: 30px;
+}
+
+.bubbles span:nth-child(5) {
+  left: 80%;
+  animation-delay: 2s;
+  width: 10px;
+  height: 10px;
+}
+
+.bubbles span:nth-child(6) {
+  left: 15%;
+  animation-delay: 4.7s;
+  width: 18px;
+  height: 18px;
+}
+
+.bubbles span:nth-child(7) {
+  left: 29%;
+  animation-delay: 2s;
+  width: 20px;
+  height: 20px;
+}
+
+.bubbles span:nth-child(8) {
+  left: 59%;
+  animation-delay: 0.5s;
+  width: 25px;
+  height: 25px;
+}
+
+.bubbles span:nth-child(9) {
+  left: 90%;
+  animation-delay: 1.5s;
+  width: 15px;
+  height: 15px;
+}
+
+.bubbles span:nth-child(10) {
+  left: 73%;
+  animation-delay: 2.8s;
+  width: 30px;
+  height: 30px;
+}
+
+/* CABEÇALHO */
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+.menu a {
+  color: var(--branco);
+  text-decoration: none;
+  margin-left: 25px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: var(--verde-claro);
+}
+
+/* HERO */
+.hero {
+  z-index: 1000;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  margin-top: 90px;
+  position: relative;
+  animation: slideIn 2s ease-out;
+}
+@keyframes slideIn {
+  from{
+    transform: translateX(-100%);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+.hero img {
+  position: absolute;
+  max-width: 62.5vw ;
+  z-index: -1;
+  opacity: 0.6;
+  margin: 0 auto;
+  margin-bottom: 20 0px;
+  margin-left: 200px;
+  
+}
+
+
+.conteudo-hero h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.conteudo-hero p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+.botao {
+  position: relative;
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--verde-medio);
+  color: var(--branco);
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.4s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.botao:hover {
+  background: var(--verde-claro);
+  transform: scale(1.05);
+}
+
+#hero__botao:after {
+  content:'';
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.50);
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: ripple 1.5s linear infinite;
+}
+
+@keyframes ripple {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(25);
+    opacity: 0;
+  }
+}
+  
+
+
+/* SEÇÕES */
+section {
+  padding: 80px 60px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2em;
+  color: var(--verde-claro);
+  margin-bottom: 20px;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  width: 280px;
+  transition: 0.4s;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(5px) scale(1.3);
+}
+
+/* GALERIA */
+.galeria .imagens {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.galeria img {
+  width: 100%;
+  border-radius: 15px;
+  transition: 0.4s;
+}
+
+.galeria img:hover {
+  transform: scale(1.08) translateY(-20px);
+}
+
+/* RODAPÉ */
+.rodape {
+  background: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
+
+.redes a {
+  color: var(--verde-claro);
+  margin: 0 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.redes a:hover {
+  color: var(--verde-medio);
+}
+
+/* CONTATO */
+.contato p {
+  padding-bottom: 15px;
+}
+
+/* ZAPZAP */
+.whatsapp-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--verde-medio);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+  animation: blink 2s linear infinite alternate;
+}
+
+@keyframes blink {
+
+  0%,
+  66% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.whatsapp-button img {
+  width: 32px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1000px){
+  .hero img{
+    visibility: hidden;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  .cabecalho {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* Coloquei uma animação de bubbles (bolhas) subindo de baixo da tela, -100% até -800px. Defini até -800px para ele sumir sem encostar no topo da tela, e infinito para nunca parar de subir as bolhas. Decretei tambem a altura e largura de cada uma dela, e aonde cada uma dela vai aparecer em tela. Mudei a cor dos numeros ímpares com ".bubbles span:nth-child(odd) {}".
+
+Coloquei um slideIn no hero, para dar boas primeiras impressoes
+
+Coloquei um ripple no primeiro botao para deixar a pagina mais animada
+
+e alguns hovers com transform mais focado em scale e translateY para aumentar o tamanho e subir ou descer alguns pixels quando passar o mouse por cima*/

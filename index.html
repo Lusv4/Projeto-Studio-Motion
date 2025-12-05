@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina </title>
+    <style>
+        /* CORES PRINCIPAIS */
+        :root {
+            --verde-escuro: #003c2f;
+            --verde-medio: #058c6e;
+            --verde-claro: #5ff2c6;
+            --branco: #ffffff;
+        }
+
+        /* Predefinições gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #003c2f;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            background: #003c2f;
+            background: rgba(0, 0, 0, 0.3);
+            color: #f0fdeb;
+            padding: 1.5rem 3rem;
+            align-items: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Header */
+        .header__logo {
+            content: attr('');
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .header__link {
+            color: #f0fdeb;
+            font-weight: 500;
+            padding: 5px;
+        }
+
+        /* Containers */
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 800px;
+        }
+
+        .container h1 {
+            width: max-content;
+            height: max-content;
+            font-size: 3rem;
+            color: #f0fdeb;
+        }
+
+        .container span {
+            color: #5ff2c6;
+        }
+
+        .container__intro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 100px auto;
+            gap: 50px;
+        }
+
+        /* Botoes */
+
+        .btn {
+            width: max-content;
+            background: #058c6e;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 28px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #5ff2c6;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Efeitos */
+
+        .carregando {
+            content: attr('');
+            width: 60px;
+            height: 60px;
+            border: 2px solid #003c2f;
+            border-top: 3px solid #5ff2c6;
+            border-radius: 50%;
+            animation: carregando 1.5s linear infinite;
+        }
+
+        @keyframes carregando {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .blink {
+            color: #f0fdeb;
+            animation: blink 1.5s linear;
+            font-size: 24px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 0;
+
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* RODAPÉ */
+        .rodape {
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        .redes a {
+            color: #5ff2c6;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .redes a:hover {
+            color: #058c6e;
+        }
+
+        /* FUNDO ANIMADO */
+        .bubbles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bubbles span {
+            position: absolute;
+            bottom: -100px;
+            width: 20px;
+            height: 20px;
+            background: var(--verde-claro);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: subir 7s infinite ease-in;
+        }
+
+        .bubbles span:nth-child(odd) {
+            background: var(--verde-medio);
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-800px) scale(2.0);
+                opacity: 0;
+            }
+        }
+
+        .bubbles span:nth-child(1) {
+            left: 5%;
+            animation-delay: 0s;
+            width: 25px;
+            height: 25px;
+        }
+
+        .bubbles span:nth-child(2) {
+            left: 20%;
+            animation-delay: 3s;
+            width: 15px;
+            height: 15px;
+        }
+
+        .bubbles span:nth-child(3) {
+            left: 40%;
+            animation-delay: 1s;
+            width: 20px;
+            height: 20px;
+        }
+
+        .bubbles span:nth-child(4) {
+            left: 60%;
+            animation-delay: 4s;
+            width: 30px;
+            height: 30px;
+        }
+
+        .bubbles span:nth-child(5) {
+            left: 80%;
+            animation-delay: 2s;
+            width: 18px;
+            height: 18px;
+        }
+
+        .bubbles span:nth-child(6) {
+            left: 9%;
+            animation-delay: 0s;
+            width: 25px;
+            height: 25px;
+        }
+
+        .bubbles span:nth-child(7) {
+            left: 29%;
+            animation-delay: 3s;
+            width: 15px;
+            height: 15px;
+        }
+
+        .bubbles span:nth-child(8) {
+            left: 59%;
+            animation-delay: 1s;
+            width: 20px;
+            height: 20px;
+        }
+
+        .bubbles span:nth-child(9) {
+            left: 90%;
+            animation-delay: 4s;
+            width: 30px;
+            height: 30px;
+        }
+
+        .bubbles span:nth-child(10) {
+            left: 73%;
+            animation-delay: 2s;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ZAPZAP */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--verde-medio);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            z-index: 1000;
+            animation: blink 2s linear infinite alternate;
+        }
+
+        @keyframes blink {
+
+            0%,
+            66% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .whatsapp-button img {
+            width: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fundo animado -->
+    <div class="bubbles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <header>
+        <img src="./img/logo.png" alt="logo tipo" width="50px">
+        <nav class="header__nav">
+            <a href="landing-page.html" class="header__link">Portfólio</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="container__intro">
+                <h1 class="blink">Olá, nós somos a <span>Stúdio Motion</span></h1>
+                <span class="carregando"></span>
+                <a class="btn" href="landing-page.html">Ver Portfólio</a>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <p>© 2025 Studio Motion — Todos os direitos reservados.</p>
+        <div class="redes">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Behance</a>
+        </div>
+    </footer>
+    <a href="https://wa.me/" class="whatsapp-button"><img src="./img/zap-50px.png" alt="icone do zap">
+</body>
+
+</html>
